@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Estructura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <style>
+        /* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA HTML --- */
+        
+        /* Color naranja característico de HTML5 */
+        .card-left {
+            background: linear-gradient(135deg, #e34c26, #9a2510); 
+        }
+
+        /* Hero Section personalizado para HTML */
+        .hero-html {
+            background: linear-gradient(135deg, #e34c26, #c0392b) !important;
+            color: white !important;
+            border: none !important;
+            box-shadow: 0 10px 20px rgba(227, 76, 38, 0.3) !important;
+        }
+
+        /* Lista de etiquetas más estilizada */
+        .tag-list li { 
+            margin-bottom: 12px; 
+            padding-bottom: 12px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Ajuste para modo claro en la lista */
+        body:not(.dark-mode) .tag-list li {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        if (localStorage.getItem('theme') === 'dark') { 
+            document.body.classList.add('dark-mode'); 
+        }
+    </script>
+
+    <header>
+        <nav>
+<a href="index.html" class="logo"><i class="fa-solid fa-globe"></i> Mi Web 2.0</a>            
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul id="nav-list">
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a></li>
+                <li><a href="html.html" class="active"><i class="fa-brands fa-html5"></i> HTML</a></li>
+                <li><a href="css.html"><i class="fa-brands fa-css3-alt"></i> CSS</a></li>
+                <li><a href="javascript.html"><i class="fa-brands fa-js"></i> JS</a></li>
+                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+                <li><button id="theme-toggle"><i class="fa-solid fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero-html">
+            <h1><i class="fa-brands fa-html5"></i> HTML5</h1>
+        </section>
+
+        <div class="html-container">
+            
+            <div class="glass-card-unified">
+                
+                <div class="card-left">
+                    <h2>Estructura</h2>
+                    <p style="opacity: 0.9;">HTML es el esqueleto de la web. Define la estructura semántica de tu contenido.</p>
+                    <div style="margin-top: 2rem; font-size: 5rem; text-align: center; opacity: 0.3;">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                </div>
+
+                <div class="card-right">
+                    <h3 style="color: var(--primary);">Etiquetas Clave</h3>
+                    <ul class="tag-list" style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li><i class="fa-solid fa-heading" style="color:var(--primary)"></i> <span><strong>&lt;header&gt;</strong>: Encabezado del sitio</span></li>
+                        <li><i class="fa-solid fa-bars" style="color:var(--primary)"></i> <span><strong>&lt;nav&gt;</strong>: Menú de navegación</span></li>
+                        <li><i class="fa-solid fa-layer-group" style="color:var(--primary)"></i> <span><strong>&lt;section&gt;</strong>: Sección de contenido</span></li>
+                        <li><i class="fa-solid fa-shoe-prints" style="color:var(--primary)"></i> <span><strong>&lt;footer&gt;</strong>: Pie de página</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2025 - Tu Nombre | Rediseño Web</p></footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. MODO OSCURO ---
+            const themeButton = document.getElementById('theme-toggle');
+            const body = document.body;
+            const icon = themeButton ? themeButton.querySelector('i') : null;
+            
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                if(icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+            }
+
+            if (themeButton) {
+                themeButton.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    if(icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                });
+            }
+
+            // --- 2. MENÚ HAMBURGUESA ---
+            const menuToggle = document.getElementById('mobile-menu');
+            const navList = document.getElementById('nav-list');
+            const toggleIcon = menuToggle ? menuToggle.querySelector('i') : null;
+
+            if (menuToggle && navList) {
+                menuToggle.addEventListener('click', () => {
+                    navList.classList.toggle('active');
+                    
+                    // Cambiar icono de barras a X
+                    if (navList.classList.contains('active')) {
+                        toggleIcon.className = 'fa-solid fa-xmark';
+                    } else {
+                        toggleIcon.className = 'fa-solid fa-bars';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

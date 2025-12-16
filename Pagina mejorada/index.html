@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - DevWeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <style>
+        /* Estilos específicos para Inicio */
+        .card-welcome { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .glass-table { width: 100%; border-collapse: collapse; margin-top: 15px; color: var(--text-main); }
+        .glass-table th { text-align: left; padding: 10px; border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .glass-table td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <script>if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }</script>
+
+    <header>
+        <nav>
+<a href="index.html" class="logo"><i class="fa-solid fa-globe"></i> Mi Web 2.0</a>            
+            
+            <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+
+            <ul id="nav-list">
+                <li><a href="index.html" class="active"><i class="fa-solid fa-home"></i> Inicio</a></li>
+                <li><a href="html.html"><i class="fa-brands fa-html5"></i> HTML</a></li>
+                <li><a href="css.html"><i class="fa-brands fa-css3-alt"></i> CSS</a></li>
+                <li><a href="javascript.html"><i class="fa-brands fa-js"></i> JS</a></li>
+                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+                <li><button id="theme-toggle"><i class="fa-solid fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 2rem; border-radius: 16px; text-align: center;">
+            <h1>Bienvenidos al Futuro</h1>
+            <p>Domina los tres pilares del desarrollo web.</p>
+        </section>
+
+        <div class="home-container">
+            <div class="glass-card-unified">
+                <div class="card-welcome">
+                    <h2>¿Qué aprenderás?</h2>
+                    <p style="opacity: 0.9;">Guía interactiva sobre HTML, CSS y JavaScript.</p>
+                    <div style="text-align: center; font-size: 3rem; margin-top: 1rem;">
+                        <i class="fa-brands fa-html5"></i> <i class="fa-brands fa-css3-alt"></i> <i class="fa-brands fa-js"></i>
+                    </div>
+                </div>
+                <div class="card-comparison">
+                    <h3 style="color: var(--primary);">Comparativa</h3>
+                    <table class="glass-table">
+                        <tr><td><i class="fa-brands fa-html5" style="color:#e34c26"></i> HTML</td><td>Estructura</td></tr>
+                        <tr><td><i class="fa-brands fa-css3-alt" style="color:#264de4"></i> CSS</td><td>Estilo</td></tr>
+                        <tr><td><i class="fa-brands fa-js" style="color:#f0db4f"></i> JS</td><td>Lógica</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2025 - Jordy</p></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Modo Oscuro
+            const themeBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const icon = themeBtn ? themeBtn.querySelector('i') : null;
+            if(localStorage.getItem('theme')==='dark'){ body.classList.add('dark-mode'); if(icon){icon.classList.replace('fa-moon','fa-sun');} }
+            if(themeBtn){ themeBtn.addEventListener('click', ()=>{ body.classList.toggle('dark-mode'); const isDark=body.classList.contains('dark-mode'); if(icon)icon.className=isDark?'fa-solid fa-sun':'fa-solid fa-moon'; localStorage.setItem('theme', isDark?'dark':'light'); }); }
+
+            // Menú Hamburguesa
+            const menuToggle = document.getElementById('mobile-menu');
+            const navList = document.getElementById('nav-list');
+            if (menuToggle && navList) {
+                menuToggle.addEventListener('click', () => {
+                    navList.classList.toggle('active');
+                    const i = menuToggle.querySelector('i');
+                    if(navList.classList.contains('active')) i.className='fa-solid fa-xmark';
+                    else i.className='fa-solid fa-bars';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Lógica</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">&lt;DevWeb /&gt;</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="html.html">HTML</a></li>
+                <li><a href="css.html">CSS</a></li>
+                <li><a href="javascript.html" class="active">JavaScript</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card" style="border-left-color: #f0db4f;">
+            <h2>JavaScript: La Interactividad</h2>
+            <img src="https://placehold.co/900x300/f0db4f/333333?text=JavaScript+Logic" alt="Lógica de programación">
+
+            <p>JavaScript es el cerebro de la página. Permite que los usuarios interactúen con el contenido en tiempo real sin recargar la página.</p>
+
+            <h3>Funcionalidades Clave</h3>
+            <ul style="list-style-type: square; padding-left: 20px; color: #444;">
+                <li>Validación de datos en formularios.</li>
+                <li>Mapas interactivos.</li>
+                <li>Animaciones complejas.</li>
+                <li>Modificar el HTML y CSS dinámicamente.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>⚡ Zona de Pruebas (Demo en vivo)</h3>
+            <p>Presiona el botón de abajo para ver cómo JavaScript cambia el HTML y el CSS instantáneamente.</p>
+            
+            <div id="caja-demo" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 20px; border-radius: 8px;">
+                <p id="texto-saludo" style="font-size: 1.2rem; font-weight: bold;">javascript esta durmiendo 😴</p>
+                
+                <button id="btn-magico" style="margin-top: 10px;">¡Despertar!</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Proyecto Educativo de Desarrollo Web</p>
+    </footer>
+
+    <script>
+        // 1. Seleccionamos los elementos del HTML por su ID
+        const boton = document.getElementById('btn-magico');
+        const texto = document.getElementById('texto-saludo');
+        const caja = document.getElementById('caja-demo');
+
+        // 2. Agregamos un "escuchador de eventos" (Event Listener)
+        boton.addEventListener('click', function() {
+            
+            // Cambiamos el texto
+            texto.textContent = "¡Hola! usuario, JavaScript está activo. ";
+            
+            // Cambiamos el estilo (CSS)
+            caja.style.backgroundColor = "#d1fae5"; // Fondo verde claro
+            caja.style.borderColor = "#10b981";     // Borde verde fuerte
+            
+            // Cambiamos el texto del botón
+            boton.textContent = "¡Hecho!";
+            
+            // Mostramos una alerta en el navegador
+            alert("¡JavaScript está funcionando !");
+        });
+    </script>
+
+</body>
+</html>

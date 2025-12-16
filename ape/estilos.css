@@ -1,0 +1,173 @@
+/* --- 1. VARIABLES Y BASE --- */
+:root {
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    /* Colores temáticos */
+    --html-color: #e34c26;
+    --css-color: #264de4;
+    --js-color: #f0db4f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: #334155;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 2. NAVEGACIÓN --- */
+header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+nav ul { list-style: none; display: flex; gap: 20px; }
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* --- 3. CONTENEDOR PRINCIPAL --- */
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    flex: 1;
+    width: 100%;
+}
+
+/* --- 4. COMPONENTES --- */
+.hero {
+    background: linear-gradient(rgba(30,41,59,0.8), rgba(30,41,59,0.8)), url('https://placehold.co/1200x400/1e293b/ffffff?text=Code+Background');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--primary);
+}
+
+/* Imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: block;
+}
+
+/* --- 5. TABLAS --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 1rem;
+    text-align: left;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Estilo especial para tabla comparativa */
+.tabla-comparativa th { text-align: center; }
+.tabla-comparativa td { text-align: center; }
+.tabla-comparativa td:first-child { text-align: left; font-weight: bold; background: #f1f5f9; }
+
+code {
+    background: #eff6ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #d63384;
+    font-family: monospace;
+}
+
+/* --- 6. FORMULARIO --- */
+form { display: grid; gap: 1.2rem; }
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover { background-color: #1d4ed8; }
+
+/* --- 7. FOOTER --- */
+footer {
+    background-color: var(--dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 10px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+}

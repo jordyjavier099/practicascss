@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Interactividad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <style>
+        /* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE JS (Colores) --- */
+        
+        /* 1. Personalización de la Tarjeta para JS */
+        .card-theory-side {
+            /* Degradado Dorado/Naranja específico para JS */
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+        }
+
+        /* 2. Caja de la Demo Interactiva */
+        #caja-demo {
+            background: rgba(255,255,255,0.2);
+            border: 2px dashed rgba(255,255,255,0.4);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+
+        /* 3. Botón Mágico de la Demo */
+        #btn-magico {
+            margin-top: 15px;
+            background: white;
+            color: #d97706;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #btn-magico:hover { transform: scale(1.05); }
+
+        /* 4. Lista de características */
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        .feature-list i { background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+    </script>
+
+    <header>
+        <nav>
+<a href="index.html" class="logo"><i class="fa-solid fa-globe"></i> Mi Web 2.0</a>            
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul id="nav-list">
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a></li>
+                <li><a href="html.html"><i class="fa-brands fa-html5"></i> HTML</a></li>
+                <li><a href="css.html"><i class="fa-brands fa-css3-alt"></i> CSS</a></li>
+                <li><a href="javascript.html" class="active"><i class="fa-brands fa-js"></i> JS</a></li>
+                <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+                <li><button id="theme-toggle"><i class="fa-solid fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: linear-gradient(135deg, #f59e0b, #d97706); border: none; color: white; box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);">
+            <h1><i class="fa-brands fa-js"></i> JavaScript</h1>
+        </section>
+
+        <div class="js-container">
+            
+            <div class="js-card-unified">
+                
+                <div class="card-theory-side">
+                    <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">El Cerebro de la Web</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem;">
+                        JavaScript es lo que hace que las páginas web "piensen". Permite modificar el contenido, estilos y responder a las acciones del usuario en tiempo real.
+                    </p>
+                    
+                    <h3 style="margin-bottom: 1rem;">¿Qué puedes crear?</h3>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-gamepad"></i> Juegos en el navegador</li>
+                        <li><i class="fa-solid fa-map-location-dot"></i> Mapas interactivos</li>
+                        <li><i class="fa-solid fa-calculator"></i> Calculadoras y formularios</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Animaciones complejas</li>
+                    </ul>
+                </div>
+
+                <div class="card-practice-side">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">⚡ Zona de Pruebas</h3>
+                    <p style="text-align: center; margin-bottom: 1.5rem; color: var(--text-muted);">
+                        Presiona el botón para ver cómo JS modifica el HTML y CSS en vivo:
+                    </p>
+
+                    <div id="caja-demo">
+                        <i id="icono-demo" class="fa-solid fa-robot" style="font-size: 3rem; margin-bottom: 15px; color: var(--text-main);"></i>
+                        <p id="texto-saludo" style="font-weight: 600; font-size: 1.1rem;">El sistema está en espera...</p>
+                        
+                        <button id="btn-magico">
+                            <i class="fa-solid fa-bolt"></i> Ejecutar Código
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Jordy | Rediseño Web</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. MODO OSCURO GLOBAL ---
+            const themeButton = document.getElementById('theme-toggle');
+            const body = document.body;
+            const icon = themeButton ? themeButton.querySelector('i') : null;
+
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                if(icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+            }
+
+            if(themeButton){
+                themeButton.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    if(icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                });
+            }
+
+            // --- 2. MENÚ HAMBURGUESA (MÓVIL) ---
+            const menuToggle = document.getElementById('mobile-menu');
+            const navList = document.getElementById('nav-list');
+            const toggleIcon = menuToggle ? menuToggle.querySelector('i') : null;
+
+            if (menuToggle && navList) {
+                menuToggle.addEventListener('click', () => {
+                    navList.classList.toggle('active'); // Muestra/Oculta menú
+                    
+                    // Cambia el icono de Barras a X
+                    if (navList.classList.contains('active')) {
+                        toggleIcon.className = 'fa-solid fa-xmark';
+                    } else {
+                        toggleIcon.className = 'fa-solid fa-bars';
+                    }
+                });
+            }
+
+            // --- 3. DEMO INTERACTIVA (JS ESPECÍFICO) ---
+            const boton = document.getElementById('btn-magico');
+            const texto = document.getElementById('texto-saludo');
+            const caja = document.getElementById('caja-demo');
+            const icono = document.getElementById('icono-demo');
+
+            if(boton && texto && caja) {
+                boton.addEventListener('click', function() {
+                    // Cambiar Texto
+                    texto.textContent = "¡JavaScript ha tomado el control! 🚀";
+                    
+                    // Cambiar Estilos de la Caja
+                    caja.style.background = "#d1fae5"; // Verde claro
+                    caja.style.borderColor = "#10b981";
+                    caja.style.transform = "scale(1.05)";
+                    caja.style.boxShadow = "0 10px 25px rgba(16, 185, 129, 0.3)";
+
+                    // Cambiar Icono
+                    icono.className = "fa-solid fa-check-circle";
+                    icono.style.color = "#059669";
+
+                    // Cambiar Botón
+                    boton.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Reiniciar';
+                    boton.style.background = "#10b981";
+                    boton.style.color = "white";
+
+                    // Lógica para reiniciar si se vuelve a dar click
+                    boton.onclick = function() {
+                        location.reload(); 
+                    };
+                });
+            }
+        });
+    </script>
+</body>
+</html>
