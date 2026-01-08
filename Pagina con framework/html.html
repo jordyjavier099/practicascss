@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 - Estructura Avanzada</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <script>if (localStorage.getItem('theme') === 'dark') { document.documentElement.setAttribute('data-bs-theme', 'dark'); document.body.classList.add('dark-mode'); }</script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="backdrop-filter: blur(10px); background: rgba(33, 37, 41, 0.85);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-globe me-2 text-info"></i>Bootstrap HTML
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript.html">JS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="theme-toggle" class="btn btn-outline-light rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section class="hero p-5 mb-5 rounded-4 text-center shadow-lg text-white" style="background: linear-gradient(135deg, #e34c26, #c0392b);">
+            <h1 class="display-4 fw-bold"><i class="fa-brands fa-html5 mb-3"></i><br>HTML5 Markup</h1>
+            <p class="lead fs-4">El lenguaje estándar para definir la estructura semántica de la web.</p>
+        </section>
+
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div class="glass-card p-4 h-100 shadow border-0 rounded-4 card-left">
+                    <h2 class="fw-bold mb-3">Estructura</h2>
+                    <p>HTML es el esqueleto de la web. Sin él, no habría contenido que estilizar o programar.</p>
+                    <div class="text-center mt-4">
+                        <i class="fa-solid fa-bone display-1 opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="glass-card p-4 h-100 shadow border-0 rounded-4 card-right bg-opacity-10">
+                    <h3 class="fw-bold mb-4 text-primary">Etiquetas Semánticas</h3>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent border-secondary border-opacity-25 py-3">
+                            <i class="fa-solid fa-heading me-3 text-warning"></i> <strong>&lt;header&gt;</strong>: Cabeceras y logotipos.
+                        </li>
+                        <li class="list-group-item bg-transparent border-secondary border-opacity-25 py-3">
+                            <i class="fa-solid fa-bars me-3 text-warning"></i> <strong>&lt;nav&gt;</strong>: Enlaces de navegación.
+                        </li>
+                        <li class="list-group-item bg-transparent border-secondary border-opacity-25 py-3">
+                            <i class="fa-solid fa-layer-group me-3 text-warning"></i> <strong>&lt;section&gt;</strong>: Bloques de contenido.
+                        </li>
+                        <li class="list-group-item bg-transparent border-0 py-3">
+                            <i class="fa-solid fa-shoe-prints me-3 text-warning"></i> <strong>&lt;footer&gt;</strong>: Información del pie de página.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <h3 class="text-center mb-4 fw-bold">Preguntas Frecuentes</h3>
+                <div class="accordion accordion-flush shadow-lg rounded-4 overflow-hidden border" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <i class="fa-solid fa-box me-2 text-primary"></i> ¿Qué es el Modelo de Caja?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Es el concepto fundamental de CSS donde cada elemento se representa como una caja rectangular. Esta caja consta de cuatro capas: <strong>contenido, relleno (padding), borde y margen</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                <i class="fa-solid fa-mobile-screen me-2 text-primary"></i> ¿Por qué usar Bootstrap en HTML?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                Bootstrap proporciona un sistema de rejilla flexible y componentes pre-diseñados que aseguran que el sitio sea <strong>responsivo</strong>, adaptándose automáticamente a móviles, tablets y computadoras.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 mt-5 border-top">
+        <p class="text-muted small">&copy; 2026 - Mi Web 2.0 | Proyecto de Desarrollo Web</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

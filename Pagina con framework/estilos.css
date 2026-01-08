@@ -1,0 +1,102 @@
+/* 
+   VARIABLES Y TRANSICIONES (MODO CLARO)
+   */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-main: #1e293b;
+    --transition-speed: 0.5s ease;
+}
+
+/* 
+   VARIABLES (MODO OSCURO NATIVO)
+   */
+[data-bs-theme="dark"] {
+    --glass-bg: rgba(15, 23, 42, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    /* Color de fondo para el modo oscuro */
+    background-color: #020617 !important;
+}
+
+/* 
+   ANIMACIÓN DE DESVANECIDO (FADE)
+    */
+body {
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+/* Animamos todos los componentes para que el cambio sea fluido */
+.navbar, 
+.card, 
+.glass-card, 
+.accordion-item, 
+.accordion-button, 
+.form-control, 
+footer {
+    transition: 
+        background-color var(--transition-speed), 
+        color var(--transition-speed), 
+        border-color var(--transition-speed), 
+        backdrop-filter var(--transition-speed) !important;
+}
+
+/* 
+   ESTILOS DE COMPONENTES (GLASSMORPISM)
+ */
+.glass-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Ajustes para el Hero (Secciones de encabezado) */
+.hero {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* 
+   AJUSTES DE FORMULARIOS Y ACORDEONES
+    */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: inherit;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Asegurar que el texto del acordeón sea legible en ambos modos */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--text-main);
+}
+
+/* 
+   UTILIDADES EXTRAS
+   */
+.text-info-custom {
+    color: #0dcaf0;
+}
+
+.border-dashed {
+    border-style: dashed !important;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.05);
+}

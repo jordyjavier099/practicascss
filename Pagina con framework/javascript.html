@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Interactividad Pro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="backdrop-filter: blur(10px); background: rgba(30, 41, 59, 0.85);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-brands fa-js me-2 text-warning"></i>Bootstrap JS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="javascript.html">JS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="theme-toggle" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section class="hero p-5 mb-5 rounded-4 text-center shadow-lg text-white" style="background: linear-gradient(135deg, #f59e0b, #b45309);">
+            <h1 class="display-4 fw-bold">
+                <i class="fa-brands fa-js mb-3"></i><br>JavaScript Logic
+            </h1>
+            <p class="lead">El motor que impulsa la interactividad y dinamismo en la web moderna.</p>
+        </section>
+
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div class="glass-card p-4 h-100 shadow border-0 rounded-4 card-theory-side bg-dark bg-opacity-10">
+                    <h2 class="fw-bold mb-4"><i class="fa-solid fa-brain me-2"></i>El Cerebro de la Web</h2>
+                    <p class="fs-5">JavaScript permite que el sitio web responda a las acciones del usuario, manipulando el DOM (Document Object Model) en tiempo real.</p>
+                    
+                    
+                    
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fa-solid fa-check text-warning me-2"></i> Validación de formularios.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check text-warning me-2"></i> Actualización de contenido sin recargar.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check text-warning me-2"></i> Creación de animaciones complejas.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="glass-card p-4 h-100 shadow border-0 rounded-4 card-practice-side text-center bg-white bg-opacity-10">
+                    <h3 class="fw-bold mb-4 text-warning">⚡ Zona de Pruebas JS</h3>
+                    <p class="text-muted mb-4">Ejecuta el script para ver cómo JavaScript interactúa con los elementos de Bootstrap en vivo.</p>
+                    
+                    <div id="caja-demo" class="p-5 rounded-4 border border-warning border-dashed mb-4" style="transition: 0.5s;">
+                        <i id="demo-icon" class="fa-solid fa-robot display-1 mb-3 text-warning"></i>
+                        <p id="texto-saludo" class="fw-bold fs-4">Estado: En espera...</p>
+                    </div>
+                    
+                    <button id="btn-magico" class="btn btn-warning btn-lg px-5 rounded-pill fw-bold shadow">
+                        <i class="fa-solid fa-bolt me-2"></i>Ejecutar Código
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h3 class="text-center mb-4 fw-bold">Conceptos Avanzados</h3>
+                <div class="accordion accordion-flush shadow-lg rounded-4 overflow-hidden border" id="jsAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#jsOne">
+                                <i class="fa-solid fa-code me-2 text-warning"></i> Manipulación del DOM
+                            </button>
+                        </h2>
+                        <div id="jsOne" class="accordion-collapse collapse show" data-bs-parent="#jsAccordion">
+                            <div class="accordion-body text-muted">
+                                El DOM representa la estructura de la página. Con JS, podemos seleccionar elementos, cambiar su texto, sus clases de Bootstrap y sus estilos CSS dinámicamente.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#jsTwo">
+                                <i class="fa-solid fa-bolt-lightning me-2 text-warning"></i> Event Listeners
+                            </button>
+                        </h2>
+                        <div id="jsTwo" class="accordion-collapse collapse" data-bs-parent="#jsAccordion">
+                            <div class="accordion-body text-muted">
+                                Son funciones que "escuchan" acciones del usuario como clics o pulsaciones de teclas para ejecutar código en respuesta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 mt-5 border-top">
+        <p class="text-muted small">&copy; 2026 - Mi Web 2.0 | Proyecto de Desarrollo Web Pro</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Lógica de la demo de JS integrada
+        document.getElementById('btn-magico').addEventListener('click', function() {
+            const caja = document.getElementById('caja-demo');
+            const texto = document.getElementById('texto-saludo');
+            const icono = document.getElementById('demo-icon');
+            
+            // Cambio dinámico de contenido
+            texto.textContent = "¡Interactividad Lograda! 🚀";
+            this.className = "btn btn-success btn-lg px-5 rounded-pill fw-bold shadow";
+            this.innerHTML = '<i class="fa-solid fa-check me-2"></i>Código Exitoso';
+            
+            // Cambio dinámico de estilos
+            caja.style.backgroundColor = "rgba(16, 185, 129, 0.2)";
+            caja.style.borderColor = "#10b981";
+            icono.className = "fa-solid fa-face-grin-stars display-1 mb-3 text-success";
+            caja.style.transform = "scale(1.02)";
+        });
+    </script>
+</body>
+</html>

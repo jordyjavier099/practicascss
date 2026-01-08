@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - Diseño Pro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <style>
+        /* Colores dinámicos para el modo oscuro */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --text-color: #1e293b;
+        }
+
+        [data-bs-theme="dark"] {
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --text-color: #f8fafc;
+        }
+
+        .glass-card-unified {
+            background: var(--glass-bg);
+            color: var(--text-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="backdrop-filter: blur(10px); background: rgba(30, 41, 59, 0.85);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-brands fa-css3-alt me-2 text-info"></i>Bootstrap CSS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="css.html">CSS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript.html">JS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="theme-toggle" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section class="hero p-5 mb-5 rounded-4 text-center shadow-lg" style="background: linear-gradient(135deg, #264de4, #102680); color: white;">
+            <h1 class="display-4 fw-bold animate__animated animate__fadeIn"><i class="fa-brands fa-css3-alt mb-3"></i><br>CSS3 Styling</h1>
+            <p class="lead">El lenguaje que da vida y personalidad a la web a través del diseño.</p>
+        </section>
+
+        <div class="row g-4 mb-5">
+            <div class="col-lg-5">
+                <div class="glass-card-unified h-100 p-4 shadow border-0 rounded-4 card-left text-white" style="background: linear-gradient(135deg, #264de4, #102680);">
+                    <h2 class="fw-bold mb-3">Diseño Moderno</h2>
+                    <p class="fs-5">Controla la presentación visual, colores, fuentes y, lo más importante, la adaptabilidad de los dispositivos.</p>
+                    <div class="text-center mt-auto">
+                        <i class="fa-solid fa-palette" style="font-size: 8rem; opacity: 0.2;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="glass-card-unified h-100 p-4 shadow border-0 rounded-4 card-right bg-white bg-opacity-10">
+                    <h3 class="fw-bold mb-4 text-primary">El Modelo de Caja (Box Model)</h3>
+                    <p class="mb-4 text-muted">Es la base de todo diseño en la web. Cada etiqueta es una caja compuesta por:</p>
+                    
+                    
+                    
+                    <div class="d-flex flex-column align-items-center justify-content-center p-4 rounded-4 border border-2 border-primary border-dashed bg-primary bg-opacity-10">
+                        <div class="w-100 text-center p-3 mb-2 border border-primary text-primary fw-bold" style="background: rgba(37, 99, 235, 0.1);">Margin (Margen)</div>
+                        <div class="w-100 text-center p-3 mb-2 border border-primary bg-primary text-white fw-bold">Border (Borde)</div>
+                        <div class="w-100 text-center p-3 mb-2 border border-white text-white fw-bold" style="background: rgba(255, 255, 255, 0.1);">Padding (Relleno)</div>
+                        <div class="w-100 text-center p-3 border border-white bg-white text-dark fw-bold">Content (Contenido)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="container my-5 py-5 border-top border-secondary border-opacity-10">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Sistema de Rejilla (Grid System)</h2>
+        <p class="lead text-muted">Bootstrap utiliza una rejilla de 12 columnas para organizar el contenido de forma responsiva.</p>
+    </div>
+
+    <div class="row g-3 text-center text-white fw-bold mb-5">
+        <div class="col-12 mb-2">
+            <div class="p-2 bg-secondary rounded-2 small opacity-50">Fila completa (12 Columnas)</div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="p-4 rounded-4 shadow-sm bg-primary glass-card h-100 d-flex align-items-center justify-content-center">
+                .(50%)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 rounded-4 shadow-sm bg-primary glass-card h-100 d-flex align-items-center justify-content-center">
+                .(50%)
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 rounded-4 shadow-sm bg-info glass-card h-100 d-flex align-items-center justify-content-center">
+                .(33%)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 rounded-4 shadow-sm bg-info glass-card h-100 d-flex align-items-center justify-content-center">
+                .(33%)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 rounded-4 shadow-sm bg-info glass-card h-100 d-flex align-items-center justify-content-center">
+                .(33%)
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            
+            <div class="glass-card p-4 rounded-4 border-0 shadow">
+                <h4 class="fw-bold text-primary mb-3">¿Cómo funciona?</h4>
+                <div class="row text-start">
+                    <div class="col-md-4 mb-3">
+                        <h6 class="fw-bold"><i class="fa-solid fa-box me-2"></i>Contenedores</h6>
+                        <p class="small text-muted">`.container` centra tu contenido y le da un ancho máximo.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6 class="fw-bold"><i class="fa-solid fa-grip-lines me-2"></i>Filas</h6>
+                        <p class="small text-muted">`.row` son los contenedores horizontales para las columnas.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h6 class="fw-bold"><i class="fa-solid fa-columns me-2"></i>Columnas</h6>
+                        <p class="small text-muted">`.col-*` definen cuántas de las 12 columnas ocupará el elemento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="text-center py-4 mt-5 border-top">
+        <p class="text-muted small">&copy; 2026 - Mi Web 2.0 | Rediseño Web Avanzado</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

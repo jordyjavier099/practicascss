@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>bootstrap - Inicio Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        // Script de ejecución inmediata para evitar parpadeo de blanco a negro
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow" style="backdrop-filter: blur(10px); background: rgba(15, 23, 42, 0.85);">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="fa-solid fa-house-laptop"></i>Bootstrap
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+                        <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript.html">JS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <button id="theme-toggle" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="heroCarousel" class="carousel slide carousel-fade shadow-lg" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472'); background-size: cover; background-position: center; padding: 120px 0;">
+                    <div class="container text-center text-white">
+                        <h1 class="display-2 fw-bold">Domina el Frontend</h1>
+                        <p class="lead fs-3">Diseño responsivo con Bootstrap 5.3 y Glassmorphism.</p>
+                        <a href="#pilares" class="btn btn-info btn-lg rounded-pill px-5 mt-3 fw-bold shadow">Comenzar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="pilares" class="container my-5 py-5">
+            <h2 class="text-center fw-bold mb-5">Pilares del Desarrollo Web</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 glass-card">
+                        <div class="card-body d-flex flex-column">
+                            <i class="fa-brands fa-html5 display-4 text-danger mb-3"></i>
+                            <h4 class="fw-bold">HTML5</h4>
+                            <p class="text-muted small">Estructura semántica avanzada para una web moderna y accesible.</p>
+                            <a href="html.html" class="btn btn-outline-danger rounded-pill mt-auto">Explorar HTML</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 glass-card">
+                        <div class="card-body d-flex flex-column">
+                            <i class="fa-brands fa-css3-alt display-4 text-primary mb-3"></i>
+                            <h4 class="fw-bold">CSS3</h4>
+                            <p class="text-muted small">Diseño visual, Flexbox, Grid y animaciones de alto nivel.</p>
+                            <a href="css.html" class="btn btn-outline-primary rounded-pill mt-auto">Explorar CSS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 glass-card">
+                        <div class="card-body d-flex flex-column">
+                            <i class="fa-brands fa-js display-4 text-warning mb-3"></i>
+                            <h4 class="fw-bold">JS</h4>
+                            <p class="text-muted small">Lógica de programación e interactividad dinámica para el usuario.</p>
+                            <a href="javascript.html" class="btn btn-outline-warning rounded-pill mt-auto">Explorar JS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-4 border-top mt-5 bg-dark text-white">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 - Jordy | Rediseño Web Avanzado con Bootstrap 5.3</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
